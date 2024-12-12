@@ -1,6 +1,6 @@
 package com.hezekiah.count;
 
-public class Texttext {
+public class TextData {
 
 //    for(int j = 0;j< 4;j++){
 //        switch (j) {

@@ -1,36 +1,13 @@
 package com.hezekiah.ui;
 
+import com.hezekiah.count.CountData;
 import com.hezekiah.function.TextAttribute;
 
 import javax.swing.*;
 import java.awt.event.*;
 
 
-public class MianJFrame extends TextAttribute implements MouseListener {
-
-    JPanel[] jPanels_1 = new JPanel[30];
-    JButton jButtons = new JButton();
-
-
-    //    String[] MulZone = {"攻击区", "倍率区","增伤区","反应区","暴伤区","暴击区","防御区","抗性区"};
-    String[] MulZone0 = {"基础属性", "进阶属性","加成类","怪物面板"};
-    String[] MulZone1 = {"生命...", "攻击...","防御...","元素精通..."};
-    String[] MulZone2 = {"暴击率...","暴击伤害..."};
-    String[] MulZone3 = {"等级...", "技能倍率...","伤害加成...","反应系数..."};
-    String[] MulZone4 = {"等级...", "抗性...","减防...","无视防御..."};
-
-
-    int[] basicattr = new int[4];
-    int[] advattr = new int[2];
-    int[] addattr = new int[4];
-    int[] enattr = new int[4];
-
-
-    JTextField[] jTextFields;
-    JTextField[] jTextFields_1, jTextFields_2, jTextFields_3, jTextFields_4 ;
-    JTextField[][] jTextFields_ = {jTextFields_1,jTextFields_2,jTextFields_3,jTextFields_4};
-
-
+public class MianJFrame extends TextAttribute implements MouseListener{
     public MianJFrame(){
         initJFrame();
         initInput();
@@ -61,7 +38,6 @@ public class MianJFrame extends TextAttribute implements MouseListener {
 
     }
 
-
     private void initInput(){
         jTextFields_1 = attribute(100,80,100,40,0,4,0,jPanels_1,MulZone1,MulZone0);
 
@@ -71,14 +47,8 @@ public class MianJFrame extends TextAttribute implements MouseListener {
 
         jTextFields_4 = attribute(60,320,80,40,0,4,0,jPanels_1,MulZone4,MulZone0);
 
+        jTextFields_5 = attribute(15,440,70,40,0,8,0,jPanels_1,MulZone5,MulZone0);
     }
-    
-
-    private void initCountData(){
-
-
-    }
-
 
     private void initCount(){
         jButtons = new JButton("计算");
@@ -94,7 +64,6 @@ public class MianJFrame extends TextAttribute implements MouseListener {
         //添加按钮
         this.getContentPane().add(jButtons);
     }
-
 
     private void buEListener() {
         // 为按钮添加点击事件监听器
@@ -112,31 +81,67 @@ public class MianJFrame extends TextAttribute implements MouseListener {
 
                 int sum2 = 0;
                 for (int i = 0; i < advattr.length; i++) {
-                    if (!jTextFields_2[sum2].getText().equals(MulZone2[sum1])) {
+                    if (!jTextFields_2[sum2].getText().equals(MulZone2[sum2])) {
                         advattr[sum2] = Integer.parseInt(jTextFields_2[sum2++].getText().trim());
                     }
                 }
 
                 int sum3 = 0;
                 for (int i = 0; i < addattr.length; i++) {
-                    if (!jTextFields_3[sum3].getText().equals(MulZone3[sum1])) {
+                    if (!jTextFields_3[sum3].getText().equals(MulZone3[sum3])) {
                         addattr[sum3] = Integer.parseInt(jTextFields_3[sum3++].getText().trim());
                     }
                 }
 
                 int sum4 = 0;
                 for (int i = 0; i < enattr.length; i++) {
-                    if (!jTextFields_4[sum4].getText().equals(MulZone4[sum1])) {
+                    if (!jTextFields_4[sum4].getText().equals(MulZone4[sum4])) {
                         enattr[sum4] = Integer.parseInt(jTextFields_4[sum4++].getText().trim());
                     }
+                }
+
+                jkl();
+
+
+                new CountData();
+
+                jButtons.setText(String.valueOf(期望伤害));
+                eee();
+
+            }
+
+            private void jkl() {
+                // 打印目标数组以验证复制是否成功
+                System.out.print('\n' + "基础属性");
+                for (int element : basicattr) {
+                    System.out.print(element + " ");
+                }
+                System.out.print('\n' + "进阶属性");
+                for (int element : advattr) {
+                    System.out.print(element + " ");
+                }
+                System.out.print('\n' + "加成属性");
+                for (int element : addattr) {
+                    System.out.print(element + " ");
+                }
+                System.out.print('\n' + "敌人属性");
+                for (int element : enattr) {
+                    System.out.print(element + " ");
                 }
             }
         });
     }
 
-
-
-
+    private void eee(){
+        jTextFields_5[0].setText(String.valueOf(CountData.攻击区));
+        jTextFields_5[1].setText(String.valueOf(CountData.倍率区));
+        jTextFields_5[2].setText(String.valueOf(CountData.增伤区));
+        jTextFields_5[3].setText(String.valueOf(CountData.反应区));
+        jTextFields_5[4].setText(String.valueOf(CountData.暴伤区));
+        jTextFields_5[5].setText(String.valueOf(CountData.暴击区));
+        jTextFields_5[6].setText(String.valueOf(CountData.防御区));
+        jTextFields_5[7].setText(String.valueOf(CountData.抗性区));
+    }
 
 //    private void buEListener(JTextField[] jTextFields) {
 //        // 为按钮添加点击事件监听器
@@ -160,23 +165,9 @@ public class MianJFrame extends TextAttribute implements MouseListener {
 //        });
 //    }
 
-
-    // 更新按钮文本的方法
-//    void updateButtonText(String text) {
-//        jButtons.setText(text);
-//    }
-
-
-
-
     @Override
     public void mouseClicked(MouseEvent e) {
-//        Object soure = e.getSource();
-//        if(soure == jButtons){
-//            jButtons.setSize(200,200);
-//        }
-//        System.out.println("O(∩_∩)O哒哒~");
-//        System.out.println(aaa++);
+
     }
 
     @Override

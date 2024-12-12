@@ -1,5 +1,7 @@
 package com.hezekiah.function;
 
+import com.hezekiah.count.VariableData;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +10,7 @@ import static com.hezekiah.function.TextColor.TextColor2;
 import static com.hezekiah.function.TextFieldPlaceholderSetter.setPlaceholders;
 import static com.hezekiah.function.TextModule.text2Fields;
 
-public class TextAttribute extends JFrame{
+public class TextAttribute extends VariableData {
     int sum = 0;
 
     public JTextField[] attribute(int x, int y, int w, int h, int interval, int amount, int order, JPanel[] jPanels, String[] MulZone, String[] MulZone0) {
