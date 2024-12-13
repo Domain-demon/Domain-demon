@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hezekiah.text_03.mapper.UserMapper">
+
+    <select id="findByAccount" resultType="com.hezekiah.text_03.entity.domain.User">
+        SELECT * FROM `user` WHERE account = #{account}
+    </select>
+
+    <insert id="addUserRegister" useGeneratedKeys="true" keyProperty="userId" parameterType="com.hezekiah.text_03.entity.domain.User">
+        INSERT INTO `user` (account, password) VALUES (#{user.account}, #{user.password})
+    </insert>
+
+    <insert id="insertUser" parameterType="UserParams" useGeneratedKeys="true" keyProperty="userId">
+        INSERT INTO user (user_name, account, `password`, role_id)
+        VALUES (#{userName}, #{account}, #{password}, #{roleId})
+    </insert>
+
+    <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customerId">
+        INSERT INTO customer (user_id, customer_name, customer_avatar, customer_sex, customer_date, customer_phone)
+        VALUES (#{userId}, #{customerName}, #{customerAvatar}, #{customerSex}, #{customerDate}, #{customerPhone})
+    </insert>
+
+
+</mapper>
