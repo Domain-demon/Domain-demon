@@ -100,39 +100,36 @@ public class MianJFrame extends TextAttribute implements MouseListener{
                     }
                 }
 
-                jkl();
-
-
+                textVerify();
                 new CountData();
-
-                jButtons.setText(String.valueOf(期望伤害));
-                eee();
+                jButtons.setText(String.valueOf(CountData.期望伤害));
+                showDamage();
 
             }
 
-            private void jkl() {
+            private void textVerify() {
                 // 打印目标数组以验证复制是否成功
                 System.out.print('\n' + "基础属性");
-                for (int element : basicattr) {
+                for (float element : basicattr) {
                     System.out.print(element + " ");
                 }
                 System.out.print('\n' + "进阶属性");
-                for (int element : advattr) {
+                for (float element : advattr) {
                     System.out.print(element + " ");
                 }
                 System.out.print('\n' + "加成属性");
-                for (int element : addattr) {
+                for (float element : addattr) {
                     System.out.print(element + " ");
                 }
                 System.out.print('\n' + "敌人属性");
-                for (int element : enattr) {
+                for (float element : enattr) {
                     System.out.print(element + " ");
                 }
             }
         });
     }
 
-    private void eee(){
+    private void showDamage(){
         jTextFields_5[0].setText(String.valueOf(CountData.攻击区));
         jTextFields_5[1].setText(String.valueOf(CountData.倍率区));
         jTextFields_5[2].setText(String.valueOf(CountData.增伤区));

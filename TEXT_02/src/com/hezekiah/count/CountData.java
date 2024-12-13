@@ -41,14 +41,14 @@ public class CountData extends VariableData{
     }
 
 
-    public int get期望伤害() {
+    public float get期望伤害() {
         攻击区 = MianJFrame.basicattr[1];
         倍率区 = MianJFrame.addattr[1];
         增伤区 = MianJFrame.addattr[2]/100 + 1;
         反应区 = 1;
         暴伤区 = MianJFrame.advattr[1]/100 + 1;
         暴击区 = MianJFrame.advattr[0]/100 + 1;
-        防御区 = (MianJFrame.addattr[0] + 100) / ((1 - MianJFrame.enattr[3]) * (1 + MianJFrame.enattr[2]) * (MianJFrame.enattr[0] + 100) + (MianJFrame.addattr[0] + 100));
+        防御区 = (MianJFrame.addattr[0] + 100) / ((1 - MianJFrame.enattr[3]/100) * (1 + MianJFrame.enattr[2]/100) * (MianJFrame.enattr[0] + 100) + (MianJFrame.addattr[0] + 100));
         if (MianJFrame.enattr[1]/100 > 0.75){
             抗性区 = 1 / (1 + 4 * (MianJFrame.enattr[1]/100));
         }
@@ -65,43 +65,43 @@ public class CountData extends VariableData{
     }
 
 
-    public int set攻击区(int 攻击区) {
-        return 攻击区 =  basicattr[1];
-    }
-
-    public int set倍率区(int 倍率区){
-        return 倍率区 = MianJFrame.addattr[1];
-    }
-
-    public int set增伤区(int 增伤区) {
-        return 增伤区 = MianJFrame.addattr[2]/100 + 1;
-    }
-
-    public int set反应区(int 反应区) {
-        return 反应区 = 反应区;
-    }
-
-    public int set暴伤区(int 暴伤区) {
-        return 暴伤区 = MianJFrame.advattr[1]/100 + 1;
-    }
-
-    public int set暴击区(int 暴击区) {
-        return 暴击区 = MianJFrame.advattr[0]/100 + 1;
-    }
-
-    public int set防御区(int 防御区) {
-        return 防御区 = (MianJFrame.addattr[0] + 100) / ((1 - MianJFrame.enattr[3]) * (1 + MianJFrame.enattr[2]) * (MianJFrame.enattr[0] + 100) + (MianJFrame.addattr[0] + 100));
-    }
-
-    public int set抗性区(int 抗性区) {
-        if (MianJFrame.enattr[1]/100 > 0.75){
-            return 抗性区 = 1 / (1 + 4 * (MianJFrame.enattr[1]/100));
-        }
-        else if (MianJFrame.enattr[1]/100 < 0){
-            return 抗性区 = 1 - (MianJFrame.enattr[1]/100);
-        }
-        else {
-            return 抗性区 = 1 - (MianJFrame.enattr[1]/100) / 2;
-        }
-    }
+//    public float set攻击区(float 攻击区) {
+//        return 攻击区 =  basicattr[1];
+//    }
+//
+//    public float set倍率区(float 倍率区){
+//        return 倍率区 = MianJFrame.addattr[1];
+//    }
+//
+//    public float set增伤区(float 增伤区) {
+//        return 增伤区 = MianJFrame.addattr[2]/100 + 1;
+//    }
+//
+//    public float set反应区(float 反应区) {
+//        return 反应区 = 反应区;
+//    }
+//
+//    public float set暴伤区(float 暴伤区) {
+//        return 暴伤区 = MianJFrame.advattr[1]/100 + 1;
+//    }
+//
+//    public float set暴击区(float 暴击区) {
+//        return 暴击区 = MianJFrame.advattr[0]/100 + 1;
+//    }
+//
+//    public float set防御区(float 防御区) {
+//        return 防御区 = (MianJFrame.addattr[0] + 100) / ((1 - MianJFrame.enattr[3]) * (1 + MianJFrame.enattr[2]) * (MianJFrame.enattr[0] + 100) + (MianJFrame.addattr[0] + 100));
+//    }
+//
+//    public float set抗性区(float 抗性区) {
+//        if (MianJFrame.enattr[1]/100 > 0.75){
+//            return 抗性区 = 1 / (1 + 4 * (MianJFrame.enattr[1]/100));
+//        }
+//        else if (MianJFrame.enattr[1]/100 < 0){
+//            return 抗性区 = 1 - (MianJFrame.enattr[1]/100);
+//        }
+//        else {
+//            return 抗性区 = 1 - (MianJFrame.enattr[1]/100) / 2;
+//        }
+//    }
 }

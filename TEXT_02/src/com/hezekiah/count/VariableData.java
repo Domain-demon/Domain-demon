@@ -7,16 +7,16 @@ public class VariableData extends JFrame {
     public JButton jButtons = new JButton();
 
     //伤害乘区
-    public int 最大伤害;
-    public int 期望伤害;
-    public static int 攻击区;
-    public static int 倍率区;
-    public static int 增伤区;
-    public static int 反应区;
-    public static int 暴伤区;
-    public static int 暴击区;
-    public static int 防御区;
-    public static int 抗性区;
+    public float 最大伤害;
+    public static float 期望伤害;
+    public static float 攻击区;
+    public static float 倍率区;
+    public static float 增伤区;
+    public static float 反应区;
+    public static float 暴伤区;
+    public static float 暴击区;
+    public static float 防御区;
+    public static float 抗性区;
 
 
     //    String[] MulZone = {"攻击区", "倍率区","增伤区","反应区","暴伤区","暴击区","防御区","抗性区"};
@@ -28,10 +28,10 @@ public class VariableData extends JFrame {
     public String[] MulZone5 = {"攻击区", "倍率区", "增伤区", "反应区", "暴伤区", "暴击区", "防御区", "抗性区"};
 
 
-    public static int[] basicattr = new int[4];
-    public static int[] advattr = new int[2];
-    public static int[] addattr = new int[4];
-    public static int[] enattr = new int[4];
+    public static float[] basicattr = new float[4];
+    public static float[] advattr = new float[2];
+    public static float[] addattr = new float[4];
+    public static float[] enattr = new float[4];
 
 
     public JTextField[] jTextFields_1, jTextFields_2, jTextFields_3, jTextFields_4, jTextFields_5;
