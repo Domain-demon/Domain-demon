@@ -1,6 +1,6 @@
 package com.hezekiah.count;
 
-import com.hezekiah.ui.MianJFrame;
+import com.hezekiah.ui.MainJFrame;
 
 public class CountData extends VariableData{
 
@@ -25,39 +25,38 @@ public class CountData extends VariableData{
     }
 
     public static double get抗性(double RES) {
-        if (MianJFrame.enattr[1]/100 > 0.75){
-            return RES = 1 / (1 + 4 * (MianJFrame.enattr[1]/100));
-        }
-        else if (MianJFrame.enattr[1]/100 < 0){
-            return RES = 1 - (MianJFrame.enattr[1]/100);
+        if (MainJFrame.enattr[1] / 100 > 0.75) {
+            return RES = 1 / (1 + 4 * (MainJFrame.enattr[1] / 100));
+        } else if (MainJFrame.enattr[1] / 100 < 0) {
+            return RES = 1 - (MainJFrame.enattr[1] / 100);
         }
         else {
-            return RES = 1 - (MianJFrame.enattr[1]/100) / 2;
+            return RES = 1 - (MainJFrame.enattr[1] / 100) / 2;
         }
     }
 
     public static double get防御(double DEF) {
-        return DEF = (MianJFrame.addattr[0] + 100) / ((1 - MianJFrame.enattr[3]/100) * (1 - MianJFrame.enattr[2]/100) * (MianJFrame.enattr[0] + 100) + (MianJFrame.addattr[0] + 100));
+        return DEF = (MainJFrame.addattr[0] + 100) / ((1 - MainJFrame.enattr[3] / 100) * (1 - MainJFrame.enattr[2] / 100) * (MainJFrame.enattr[0] + 100) + (MainJFrame.addattr[0] + 100));
     }
 
     public static double get暴击(double CRT) {
-        return CRT = MianJFrame.advattr[0]/100;
+        return CRT = MainJFrame.advattr[0] / 100;
     }
 
     public static double get暴伤(double CRD) {
-        return CRD = MianJFrame.advattr[1]/100 + 1;
+        return CRD = MainJFrame.advattr[1] / 100 + 1;
     }
 
     public static double get增伤(double DBT) {
-        return DBT = MianJFrame.addattr[2]/100 + 1;
+        return DBT = MainJFrame.addattr[2] / 100 + 1;
     }
 
     public static double get倍率(double SMP) {
-        return SMP = MianJFrame.addattr[1]/100;
+        return SMP = MainJFrame.addattr[1] / 100;
     }
 
     public static double get攻击(double ATK) {
-        return ATK = MianJFrame.basicattr[1];
+        return ATK = MainJFrame.basicattr[1];
     }
 
 

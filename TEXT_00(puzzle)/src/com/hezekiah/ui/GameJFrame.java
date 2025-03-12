@@ -2,7 +2,6 @@ package com.hezekiah.ui;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Arrays;

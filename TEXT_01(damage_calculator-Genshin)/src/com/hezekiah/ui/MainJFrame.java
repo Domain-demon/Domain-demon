@@ -6,17 +6,18 @@ import com.hezekiah.function.TextAttribute;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.Arrays;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static com.hezekiah.count.CountData.*;
 import static com.hezekiah.function.TextColor.TextColor4;
 
 
-public class MianJFrame extends TextAttribute {
+public class MainJFrame extends TextAttribute {
 
     int 随机数 = 0;
-    public MianJFrame(){
+
+    public MainJFrame() {
         initJFrame();
         initInput();
         initCount();
