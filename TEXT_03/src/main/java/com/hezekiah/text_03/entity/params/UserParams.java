@@ -22,7 +22,7 @@ public class UserParams {
     @NotBlank(message = "请传入userName")
     private String userName;
 
-    @NotBlank(message = "请传入roleId")
-    private String roleId;
+    //    @NotNull(message = "请传入roleId")
+    private int roleId;
 
 }

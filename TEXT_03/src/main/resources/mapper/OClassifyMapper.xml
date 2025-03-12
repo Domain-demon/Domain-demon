@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hezekiah.text_03.mapper.OClassifyMapper">
+    <resultMap id="BaseResultMap" type="com.hezekiah.text_03.entity.domain.OClassify">
+        <id column="oclassify_id" jdbcType="INTEGER" property="oclassifyId"/>
+        <result column="oclassify_title" jdbcType="VARCHAR" property="oclassifyTitle"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        oclassify_id
+        , oclassify_title
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from oclassify
+        where oclassify_id = #{oclassifyId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAllClassify" resultType="com.hezekiah.text_03.entity.domain.OClassify">
+        select oclassify_title
+        from oclassify
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from oclassify
+        where oclassify_id = #{oclassifyId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="oclassify_id" keyProperty="oclassifyId"
+            parameterType="com.hezekiah.text_03.entity.domain.OClassify" useGeneratedKeys="true">
+        insert into oclassify (oclassify_title)
+        values (#{oclassifyTitle,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="oclassify_id" keyProperty="oclassifyId"
+            parameterType="com.hezekiah.text_03.entity.domain.OClassify" useGeneratedKeys="true">
+        insert into oclassify
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="oclassifyTitle != null">
+                oclassify_title,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="oclassifyTitle != null">
+                #{oclassifyTitle,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.hezekiah.text_03.entity.domain.OClassify">
+        update oclassify
+        <set>
+            <if test="oclassifyTitle != null">
+                oclassify_title = #{oclassifyTitle,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where oclassify_id = #{oclassifyId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.hezekiah.text_03.entity.domain.OClassify">
+        update oclassify
+        set oclassify_title = #{oclassifyTitle,jdbcType=VARCHAR}
+        where oclassify_id = #{oclassifyId,jdbcType=INTEGER}
+    </update>
+</mapper>

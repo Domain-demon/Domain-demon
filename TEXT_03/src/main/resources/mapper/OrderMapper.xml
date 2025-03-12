@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hezekiah.text_03.mapper.OrderMapper">
+    <!-- 定义 ResultMap -->
+    <resultMap id="BaseResultMap" type="com.hezekiah.text_03.entity.domain.Order">
+        <id column="order_id" jdbcType="INTEGER" property="orderId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="order_time" jdbcType="TIMESTAMP" property="orderTime"/>
+        <result column="order_start" jdbcType="VARCHAR" property="orderStart"/>
+        <result column="order_end" jdbcType="VARCHAR" property="orderEnd"/>
+        <result column="guiding_price" jdbcType="DECIMAL" property="guidingPrice"/>
+        <result column="person_num" jdbcType="INTEGER" property="personNum"/>
+        <result column="describe" jdbcType="VARCHAR" property="describe"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="ostatus_id" jdbcType="INTEGER" property="ostatusId"/>
+        <result column="oclassify_id" jdbcType="INTEGER" property="oclassifyId"/>
+        <result column="work_person" jdbcType="VARCHAR" property="workPerson"/>
+    </resultMap>
+
+    <!-- 定义 SQL 片段 -->
+    <sql id="Base_Column_List">
+        order_id
+        , user_id, order_time, order_start, order_end, guiding_price, person_num,
+        `describe`, address, ostatus_id, oclassify_id, work_person
+    </sql>
+
+    <!-- 查询方法 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </select>
+
+    <!-- 删除方法 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from `order`
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </delete>
+
+    <!-- 插入方法 -->
+    <insert id="insert" keyColumn="order_id" keyProperty="orderId"
+            parameterType="com.hezekiah.text_03.entity.domain.Order" useGeneratedKeys="true">
+        insert into `order` (user_id, order_time, order_start,
+                             order_end, guiding_price, person_num,
+                             `describe`, address, ostatus_id,
+                             oclassify_id, work_person)
+        values (#{userId,jdbcType=INTEGER}, #{orderTime,jdbcType=TIMESTAMP}, #{orderStart,jdbcType=VARCHAR},
+                #{orderEnd,jdbcType=VARCHAR}, #{guidingPrice,jdbcType=DECIMAL}, #{personNum,jdbcType=INTEGER},
+                #{describe,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{ostatusId,jdbcType=INTEGER},
+                #{oclassifyId,jdbcType=INTEGER}, #{workPerson,jdbcType=VARCHAR})
+    </insert>
+
+    <!-- 动态插入方法 -->
+    <insert id="insertSelective" keyColumn="order_id" keyProperty="orderId"
+            parameterType="com.hezekiah.text_03.entity.domain.Order" useGeneratedKeys="true">
+        insert into `order`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="orderTime != null">
+                order_time,
+            </if>
+            <if test="orderStart != null">
+                order_start,
+            </if>
+            <if test="orderEnd != null">
+                order_end,
+            </if>
+            <if test="guidingPrice != null">
+                guiding_price,
+            </if>
+            <if test="personNum != null">
+                person_num,
+            </if>
+            <if test="describe != null">
+                `describe`,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="ostatusId != null">
+                ostatus_id,
+            </if>
+            <if test="oclassifyId != null">
+                oclassify_id,
+            </if>
+            <if test="workPerson != null">
+                work_person,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="orderTime != null">
+                #{orderTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="orderStart != null">
+                #{orderStart,jdbcType=VARCHAR},
+            </if>
+            <if test="orderEnd != null">
+                #{orderEnd,jdbcType=VARCHAR},
+            </if>
+            <if test="guidingPrice != null">
+                #{guidingPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="personNum != null">
+                #{personNum,jdbcType=INTEGER},
+            </if>
+            <if test="describe != null">
+                #{describe,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="ostatusId != null">
+                #{ostatusId,jdbcType=INTEGER},
+            </if>
+            <if test="oclassifyId != null">
+                #{oclassifyId,jdbcType=INTEGER},
+            </if>
+            <if test="workPerson != null">
+                #{workPerson,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 动态更新方法 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.hezekiah.text_03.entity.domain.Order">
+        update `order`
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="orderTime != null">
+                order_time = #{orderTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="orderStart != null">
+                order_start = #{orderStart,jdbcType=VARCHAR},
+            </if>
+            <if test="orderEnd != null">
+                order_end = #{orderEnd,jdbcType=VARCHAR},
+            </if>
+            <if test="guidingPrice != null">
+                guiding_price = #{guidingPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="personNum != null">
+                person_num = #{personNum,jdbcType=INTEGER},
+            </if>
+            <if test="describe != null">
+                `describe` = #{describe,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="ostatusId != null">
+                ostatus_id = #{ostatusId,jdbcType=INTEGER},
+            </if>
+            <if test="oclassifyId != null">
+                oclassify_id = #{oclassifyId,jdbcType=INTEGER},
+            </if>
+            <if test="workPerson != null">
+                work_person = #{workPerson,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </update>
+
+    <!-- 全量更新方法 -->
+    <update id="updateByPrimaryKey" parameterType="com.hezekiah.text_03.entity.domain.Order">
+        update `order`
+        set user_id       = #{userId,jdbcType=INTEGER},
+            order_time    = #{orderTime,jdbcType=TIMESTAMP},
+            order_start   = #{orderStart,jdbcType=VARCHAR},
+            order_end     = #{orderEnd,jdbcType=VARCHAR},
+            guiding_price = #{guidingPrice,jdbcType=DECIMAL},
+            person_num    = #{personNum,jdbcType=INTEGER},
+            `describe`    = #{describe,jdbcType=VARCHAR},
+            address       = #{address,jdbcType=VARCHAR},
+            ostatus_id    = #{ostatusId,jdbcType=INTEGER},
+            oclassify_id  = #{oclassifyId,jdbcType=INTEGER},
+            work_person   = #{workPerson,jdbcType=VARCHAR}
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </update>
+
+    <!--  根据订单类型ID查询订单列表  -->
+    <select id="getByOClassifyId" resultType="com.hezekiah.text_03.entity.domain.Order">
+        select *
+        from `order`
+        where oclassify_id = #{oclassifyId}
+    </select>
+</mapper>

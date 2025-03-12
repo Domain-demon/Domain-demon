@@ -3,21 +3,51 @@
 <mapper namespace="com.hezekiah.text_03.mapper.UserMapper">
 
     <select id="findByAccount" resultType="com.hezekiah.text_03.entity.domain.User">
-        SELECT * FROM `user` WHERE account = #{account}
+        SELECT *
+        FROM `user`
+        WHERE account = #{account}
     </select>
 
-    <insert id="addUserRegister" useGeneratedKeys="true" keyProperty="userId" parameterType="com.hezekiah.text_03.entity.domain.User">
-        INSERT INTO `user` (account, password) VALUES (#{user.account}, #{user.password})
+    <select id="findInfoByAccount" resultType="com.hezekiah.text_03.entity.domain.User">
+        SELECT user_name, user_id
+        FROM `user`
+        WHERE account = #{account}
+    </select>
+
+    <insert id="addUserRegister" parameterType="com.hezekiah.text_03.entity.domain.User" useGeneratedKeys="true"
+            keyProperty="userId">
+        INSERT INTO `user` (account, `password`, user_name, role_id)
+        VALUES (#{user.account}, #{user.password}, #{user.userName}, #{user.roleId})
     </insert>
 
-    <insert id="insertUser" parameterType="UserParams" useGeneratedKeys="true" keyProperty="userId">
-        INSERT INTO user (user_name, account, `password`, role_id)
-        VALUES (#{userName}, #{account}, #{password}, #{roleId})
+    <insert id="insertUser" parameterType="com.hezekiah.text_03.entity.params.UserParams" useGeneratedKeys="true"
+            keyProperty="userId">
+        INSERT INTO user (account, `password`, user_name, role_id)
+        VALUES (#{account}, #{password}, #{userName}, #{roleId})
     </insert>
 
-    <insert id="insertCustomer" parameterType="Customer" useGeneratedKeys="true" keyProperty="customerId">
+    <insert id="insertCustomer" parameterType="com.hezekiah.text_03.entity.domain.Customer" useGeneratedKeys="true"
+            keyProperty="customerId">
         INSERT INTO customer (user_id, customer_name, customer_avatar, customer_sex, customer_date, customer_phone)
         VALUES (#{userId}, #{customerName}, #{customerAvatar}, #{customerSex}, #{customerDate}, #{customerPhone})
+    </insert>
+
+
+    <insert id="insertTaker" parameterType="com.hezekiah.text_03.entity.domain.Taker" useGeneratedKeys="true"
+            keyProperty="takerId">
+        INSERT INTO taker (user_id, taker_name, taker_avatar, taker_sex, taker_date, taker_phone, taker_address,
+                           id_front, id_reverse, certificate_url)
+        VALUES (#{userId}, #{takerName}, #{takerAvatar}, #{takerSex}, #{takerDate}, #{takerPhone}, #{takerAddress},
+                #{idFront}, #{idReverse}, #{certificateUrl})
+    </insert>
+
+
+    <insert id="insertMerchant" parameterType="com.hezekiah.text_03.entity.domain.Merchant" useGeneratedKeys="true"
+            keyProperty="merchantId">
+        INSERT INTO merchant (user_id, merchant_name, merchant_phone, merchant_address, corporate_front,
+                              corporate_reverse, business_license)
+        VALUES (#{userId}, #{merchantName}, #{merchantPhone}, #{merchantAddress}, #{corporateFront},
+                #{corporateReverse}, #{businessLicense})
     </insert>
 
 

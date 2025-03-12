@@ -19,7 +19,7 @@ public class ExceptionCapture {
      * - 自定义参数校验异常，将message按照统一的HttpResult封装格式返回前端
      ***/
     @ExceptionHandler(BindException.class)
-    public Map<String ,Object> handleBindException(BindException e) {
+    public Map<String, Object> handleBindException(BindException e) {
         //获取所有未通过校验的message的第一条
 //       String message = e.getAllErrors().get(0).getDefaultMessage();
 
