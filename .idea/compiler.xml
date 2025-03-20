@@ -11,12 +11,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TEXT_03" />
+        <module name="demo" />
         <module name="TEXT_04" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="demo" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

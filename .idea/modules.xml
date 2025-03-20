@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/JAVA_TEXT.iml" filepath="$PROJECT_DIR$/.idea/JAVA_TEXT.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TEXT_00(puzzle)/TEXT_00(puzzle).iml" filepath="$PROJECT_DIR$/TEXT_00(puzzle)/TEXT_00(puzzle).iml" />
-      <module fileurl="file://$PROJECT_DIR$/TEXT_01(damage_calculator-Genshin)/TEXT_01(damage_calculator-Genshin).iml" filepath="$PROJECT_DIR$/TEXT_01(damage_calculator-Genshin)/TEXT_01(damage_calculator-Genshin).iml" />
-      <module fileurl="file://$PROJECT_DIR$/TEXT_02(damage_calculator-Genshin)/TEXT_02(damage_calculator-Genshin).iml" filepath="$PROJECT_DIR$/TEXT_02(damage_calculator-Genshin)/TEXT_02(damage_calculator-Genshin).iml" />
+      <module fileurl="file://$PROJECT_DIR$/TEXT_00/TEXT_00.iml" filepath="$PROJECT_DIR$/TEXT_00/TEXT_00.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TEXT_01/TEXT_01.iml" filepath="$PROJECT_DIR$/TEXT_01/TEXT_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TEXT_02/TEXT_02.iml" filepath="$PROJECT_DIR$/TEXT_02/TEXT_02.iml" />
     </modules>
   </component>
 </project>
